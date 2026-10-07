@@ -9,7 +9,6 @@ layout(location = 2) in float inHeight;
 
 layout(location = 0) out vec4 outColor;
 
-// TODO(TASK 4c)
 vec3 bands(float h) {
   vec3 col = mix(vec3(0.02, 0.08, 0.30), vec3(0.10, 0.45, 0.65),
                  smoothstep(0.20, 0.35, h));

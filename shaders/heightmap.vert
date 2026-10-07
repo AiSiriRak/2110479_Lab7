@@ -10,7 +10,6 @@ layout(location = 0) out vec3 outWorld;
 layout(location = 1) out vec3 outNormal;
 layout(location = 2) out float outHeight;
 
-// TODO(TASK 4a)
 float height(vec2 xz) {
   return fbm(xz * 1.5 + vec2(1.7, 9.2) + u.time * 0.05, u.octaves) * u.knobf;
 }
@@ -18,7 +17,6 @@ float height(vec2 xz) {
 void main() {
   vec3 pos = vec3(inXZ.x, height(inXZ), inXZ.y);
 
-  // TODO(TASK 4b)
   float e = 2.0 / float(u.knob);
   vec3 n = normalize(vec3(
       height(pos.xz - vec2(e, 0.0)) - height(pos.xz + vec2(e, 0.0)), 2.0 * e,

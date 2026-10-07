@@ -23,25 +23,21 @@ vec2 ball_center() {
   return vec2(0.45, 0.15 * sin(u.time));
 }
 
-// TODO(TASK 3a)
 float sdf_box(vec2 p, vec2 hs) {
   vec2 d = abs(p) - hs;
   return length(max(d, 0.0)) + min(max(d.x, d.y), 0.0);
 }
 
-// TODO(TASK 3b)
 float sdf_rounded_box(vec2 p, vec2 hs, float r) {
   vec2 q = abs(p) - hs + r;
   return length(max(q, 0.0)) + min(max(q.x, q.y), 0.0) - r;
 }
 
-// TODO(TASK 3c)
 float op_smooth_union(float d1, float d2, float k) {
   float h = clamp(0.5 + 0.5 * (d2 - d1) / k, 0.0, 1.0);
   return mix(d2, d1, h) - k * h * (1.0 - h);
 }
 
-// TODO(TASK 3d)
 float scene(vec2 p) {
   float body = sdf_rounded_box(p - vec2(-0.35, 0.0), vec2(0.40, 0.25), 0.08);
   float ball = sdf_circle(p - ball_center(), 0.30);

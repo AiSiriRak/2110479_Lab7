@@ -9,7 +9,6 @@ uint pcg(uint v) {
 
 float hash(uvec2 p) { return float(pcg(p.x ^ pcg(p.y))) / 4294967296.0; }
 
-// TODO(TASK 2a)
 float value_noise(vec2 p) {
 
   vec2 pos = p + 1000.0;
@@ -28,7 +27,6 @@ float value_noise(vec2 p) {
   return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
 }
 
-// TODO(TASK 2b)
 float fbm(vec2 p, uint octaves) {
   float value = 0.0;
   float amplitude = 0.5;
